@@ -27,29 +27,34 @@ const questions = [
     "子供のころ、親や教師は自分のことを「敏感だ」とか「内気だ」と思っていた"
 ];
 
-const aromaRecommendations = {
+// HSPアロマ対応リスト
+const aromaList = {
     "Grounding（土台）": "https://whatisfuuka.jp/products/hs3",
     "Protection（防御）": "https://whatisfuuka.jp/products/hs2",
     "Pull in（避難所）": "https://whatisfuuka.jp/products/hs7",
     "Clean Energy（クリーンエナジー）": "https://whatisfuuka.jp/products/er1",
     "Self Love（自愛）": "https://whatisfuuka.jp/products/hs4",
-    "Mission（ミッション）": "https://whatisfuuka.jp/products/hs8",
-    "Cleansing（浄化）": "https://whatisfuuka.jp/products/hs1", 
-    "Closure（解放）": "https://whatisfuuka.jp/products/hs9", 
-    "Me I am（自分自身）": "https://whatisfuuka.jp/products/hs6", 
-    "Speak（言葉を紡ぎ出す）": "https://whatisfuuka.jp/products/hs5"
+    "Mission（ミッション）": "https://whatisfuuka.jp/products/hs8"
 };
+
+// 初回の質問を表示
+document.addEventListener("DOMContentLoaded", () => {
+    displayNextQuestion();
+});
+
+function displayNextQuestion() {
+    if (questionIndex < questions.length) {
+        document.getElementById("question-text").innerText = questions[questionIndex];
+        document.getElementById("current-question").innerText = `${questionIndex + 1} / ${questions.length}`;
+    } else {
+        showHSPResult();
+    }
+}
 
 function answerHSP(score) {
     hspScore += score;
     questionIndex++;
-
-    if (questionIndex < questions.length) {
-        document.getElementById("current-question").innerText = questionIndex + 1;
-        document.getElementById("question-text").innerText = questions[questionIndex];
-    } else {
-        showHSPResult();
-    }
+    displayNextQuestion();
 }
 
 function showHSPResult() {
