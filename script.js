@@ -69,8 +69,8 @@ function showAromaRecommendation() {
         aroma = "Grounding（土台）";
         productURL = "https://whatisfuuka.jp/products/hs3";
     } else {
-        hspComment = "HSP気質はそれほど強くないかもしれません。";
-        aroma = "Relaxation（リラックス）";
+        hspComment = "HSP気質はそれほど強くないかもしれません。けれど常にストレスをクリアにしておくことは大切です。そんなあなたにおすすめは。人気No.1";
+        aroma = "Clean Energy（クリーンエナジー）";
         productURL = "https://whatisfuuka.jp/products/er1";
     }
 
