@@ -29,9 +29,16 @@ let questionIndex = 0;
 
 // ✅ 診断開始時に最初の質問を表示
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("question-text").innerText = questions[questionIndex];
-    document.getElementById("current-question").innerText = questionIndex + 1;
+    let questionText = document.getElementById("question-text");
+    
+    if (questionText) {
+        questionText.innerText = questions[questionIndex]; // 最初の質問をセット
+        document.getElementById("current-question").innerText = questionIndex + 1;
+    } else {
+        console.error("⚠️ エラー: question-text が見つかりません！");
+    }
 });
+
 
 function answerHSP(score) {
     hspScore += score;
