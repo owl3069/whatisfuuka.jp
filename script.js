@@ -86,8 +86,8 @@ function showHSPResult() {
         recommendedAroma = aromaKeys[randomIndex];
         productURL = aromaList[recommendedAroma];
     } else {
-        hspComment = "あなたはHSP気質ではないかもしれませんが、毎日のストレスケアは重要です。オランダ人気No.1商品をおすすめします";
-        recommendedAroma = "Clean Energy（クリーンエナジー）";
+        hspComment = "あなたはHSP気質ではないかもしれませんが、毎日たまるストレスをクリアに。";
+        recommendedAroma = "オランダ人気No.1 Clean Energy（クリーンエナジー）";
         productURL = "https://whatisfuuka.jp/products/er1";
     }
 
