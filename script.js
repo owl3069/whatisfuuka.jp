@@ -48,27 +48,32 @@ function answerHSP(score) {
         document.getElementById("current-question").innerText = questionIndex + 1;
         document.getElementById("question-text").innerText = questions[questionIndex];
     } else {
-        showResult();
+        showHSPResult();
     }
 }
 
-function showResult() {
+function showHSPResult() {
     document.getElementById("question-box").style.display = "none";
     document.getElementById("result-box").style.display = "block";
-    
+
     document.getElementById("hsp-score").innerText = `あなたの「はい」は ${hspScore} 個でした。`;
 
     let hspComment = "";
-    let recommendedAroma = "Clean Energy（クリーンエナジー）";
-    let productURL = "https://whatisfuuka.jp/products/ce1";
+    let recommendedAroma = "";
+    let productURL = "";
 
     if (hspScore >= 12) {
         hspComment = "エレイン・N・アーロン博士によると、あなたはHSPの気質があるようです。";
-        let aromaList = Object.keys(aromaRecommendations);
-        recommendedAroma = aromaList[Math.floor(Math.random() * aromaList.length)];
-        productURL = aromaRecommendations[recommendedAroma];
+        
+        // ランダムにHSP向けのアロマを選択
+        const aromaKeys = Object.keys(aromaList);
+        const randomIndex = Math.floor(Math.random() * aromaKeys.length);
+        recommendedAroma = aromaKeys[randomIndex];
+        productURL = aromaList[recommendedAroma];
     } else {
-        hspComment = "HSP気質はそれほど強くないかもしれません。ただし、敏感な部分もあるかもしれません。";
+        hspComment = "あなたはHSP気質ではないかもしれませんが、心を整える香りを試してみてください。";
+        recommendedAroma = "Energy Refresh（エネルギーリフレッシュ）";
+        productURL = "https://whatisfuuka.jp/products/er1";
     }
 
     document.getElementById("hsp-comment").innerText = hspComment;
