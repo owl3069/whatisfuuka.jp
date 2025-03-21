@@ -1,7 +1,7 @@
 let hspScore = 0;
 let questionIndex = 0;
 
-const questions = [
+cconst questions = [
     "自分をとりまく環境の微妙な変化によく気づくほうだ",
     "他人の気分に左右される",
     "痛みにとても敏感である",
