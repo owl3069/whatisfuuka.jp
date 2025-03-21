@@ -57,9 +57,9 @@ function showAromaRecommendation() {
     let resultMessage = `あなたの「はい」の数は **${hspScore} 個** でした。`;
     let hspComment = hspScore >= 12 
         ? "エレイン・N・アーロン博士によると、あなたはHSPの気質があるようです。" 
-        : "HSP気質はそれほど強くないかもしれません。";
+        : "HSP気質はそれほど強くないかもしれません。そんなあなたにも毎日のストレスリセット習慣を。オランダ人気No.1商品";
 
-    let recommendedAroma = "Relaxation（リラックス）";
+    let recommendedAroma = "https://whatisfuuka.jp/products/er1";
     let productURL = "https://whatisfuuka.jp/products/er1";
 
     if (hspScore >= 12 && selectedAromas.length > 0) {
