@@ -14,7 +14,7 @@
     <p>質問数: <span id="current-question">1</span> / 23</p>
 
     <div id="question-box">
-        <p id="question-text">質問をロード中...</p> <!-- ✅ 初期値をセット -->
+        <p id="question-text">質問をロード中...</p> <!-- ✅ ここに `id="question-text"` を確実に追加 -->
         <button onclick="answerHSP(1)">はい</button>
         <button onclick="answerHSP(0)">いいえ</button>
     </div>
@@ -25,6 +25,7 @@
         <p id="hsp-comment"></p>
         <p>あなたにおすすめのアロマ: <span id="recommended-aroma"></span></p>
         <a id="product-link" href="#" target="_blank">アロマをチェックする</a>
+        <p id="book-reference"></p>
     </div>
 
     <script src="script.js"></script>
