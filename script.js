@@ -27,20 +27,6 @@ const questions = [
     "子供のころ、親や教師は自分のことを「敏感だ」とか「内気だ」と思っていた"
 ];
 
-// HSPアロマ対応リスト
-const aromaRecommendations = {
-    "Grounding（土台）": "https://whatisfuuka.jp/products/hs3",
-    "Protection（防御）": "https://whatisfuuka.jp/products/hs2",
-    "Pull in（避難所）": "https://whatisfuuka.jp/products/hs7",
-    "Clean Energy（クリーンエナジー）": "https://whatisfuuka.jp/products/ce1",
-    "Self Love（自愛）": "https://whatisfuuka.jp/products/hs4",
-    "Mission（ミッション）": "https://whatisfuuka.jp/products/hs8",
-    "Cleansing（浄化）": "https://whatisfuuka.jp/products/hs1", 
-    "Closure（解放）": "https://whatisfuuka.jp/products/hs9", 
-    "Me I am（自分自身）": "https://whatisfuuka.jp/products/hs6", 
-    "Speak（言葉を紡ぎ出す）": "https://whatisfuuka.jp/products/hs5"
-};
-
 // 初回の質問を表示
 document.addEventListener("DOMContentLoaded", () => {
     displayNextQuestion();
@@ -58,7 +44,7 @@ function displayNextQuestion() {
 function answerHSP(score) {
     hspScore += score;
     questionIndex++;
-    
+
     if (questionIndex < questions.length) {
         displayNextQuestion();
     } else {
@@ -79,7 +65,7 @@ function showHSPResult() {
     if (hspScore >= 12) {
         hspComment = "あなたはHSPの気質があるようです。";
         
-        // ランダムにHSP向けのアロマを選択（修正）
+        // ランダムにHSP向けのアロマを選択
         const aromaKeys = Object.keys(aromaRecommendations);
         const randomIndex = Math.floor(Math.random() * aromaKeys.length);
         recommendedAroma = aromaKeys[randomIndex];
