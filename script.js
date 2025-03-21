@@ -27,18 +27,15 @@ const questions = [
     "子供のころ、親や教師は自分のことを「敏感だ」とか「内気だ」と思っていた"
 ];
 
-// ✅ 初回の質問を自動で表示する
+// ✅ 初回の質問を自動で表示
 document.addEventListener("DOMContentLoaded", function() {
     displayNextQuestion();
 });
 
 function displayNextQuestion() {
     if (questionIndex < questions.length) {
-        document.getElementById("hsp-diagnosis").innerHTML = `
-            <p>質問 ${questionIndex + 1} / ${questions.length}: ${questions[questionIndex]}</p>
-            <button onclick="answerHSP(1)">はい</button>
-            <button onclick="answerHSP(0)">いいえ</button>
-        `;
+        document.getElementById("current-question").innerText = questionIndex + 1;
+        document.getElementById("question-text").innerText = questions[questionIndex];
     } else {
         showAromaRecommendation();
     }
@@ -51,23 +48,27 @@ function answerHSP(score) {
 }
 
 function showAromaRecommendation() {
-    document.getElementById("hsp-diagnosis").style.display = "none";
-    document.getElementById("aroma-result").style.display = "block";
+    document.getElementById("question-box").style.display = "none";
+    document.getElementById("result-box").style.display = "block";
 
+    let resultMessage = `あなたの「はい」の数は **${hspScore} 個** でした。`;
+    let hspComment = "";
     let aroma = "";
     let productURL = "";
 
-    if (hspScore <= 1) {
-        aroma = "Protection（防御）";
-        productURL = "https://whatisfuuka.jp/products/hs2";
-    } else if (hspScore == 2) {
-        aroma = "Cleansing（浄化）";
-        productURL = "https://whatisfuuka.jp/products/hs1";
-    } else {
+    if (hspScore >= 12) {
+        hspComment = "エレイン・N・アーロン博士によると、あなたはHSPの気質があるようです。";
         aroma = "Grounding（土台）";
         productURL = "https://whatisfuuka.jp/products/hs3";
+    } else {
+        hspComment = "HSP気質はそれほど強くないかもしれません。";
+        aroma = "Relaxation（リラックス）";
+        productURL = "https://whatisfuuka.jp/products/er1";
     }
 
-    document.getElementById("result-text").innerText = `あなたにおすすめのアロマ: ${aroma}`;
+    document.getElementById("hsp-score").innerText = resultMessage;
+    document.getElementById("hsp-comment").innerText = hspComment;
+    document.getElementById("recommended-aroma").innerText = aroma;
     document.getElementById("product-link").href = productURL;
+    document.getElementById("book-reference").innerText = "このリストは、エレイン・N・アーロン博士の著書「The Highly Sensitive Person」に基づいています。";
 }
