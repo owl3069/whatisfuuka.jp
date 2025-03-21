@@ -28,26 +28,17 @@ const questions = [
     { text: "子供のころ、親や教師は自分のことを「敏感だ」とか「内気だ」と思っていた", aroma: "Self Love（自愛）", url: "https://whatisfuuka.jp/products/hs4" }
 ];
 
-document.addEventListener("DOMContentLoaded", function() {
-    displayNextQuestion();
-});
-
-function displayNextQuestion() {
-    if (questionIndex < questions.length) {
-        document.getElementById("current-question").innerText = questionIndex + 1;
-        document.getElementById("question-text").innerText = questions[questionIndex].text;
-    } else {
-        showAromaRecommendation();
-    }
-}
-
 function answerHSP(score) {
     if (score === 1) {
-        selectedAromas.push(questions[questionIndex].aroma);
+        selectedAromas.push(questions[questionIndex]);
     }
     hspScore += score;
     questionIndex++;
-    displayNextQuestion();
+    if (questionIndex < questions.length) {
+        displayNextQuestion();
+    } else {
+        showAromaRecommendation();
+    }
 }
 
 function showAromaRecommendation() {
@@ -59,8 +50,14 @@ function showAromaRecommendation() {
         ? "エレイン・N・アーロン博士によると、あなたはHSPの気質があるようです。" 
         : "HSP気質はそれほど強くないかもしれません。";
 
-    let recommendedAroma = [...new Set(selectedAromas)].join(", ");
-    let productURL = hspScore >= 12 ? "https://whatisfuuka.jp/products/hs3" : "https://whatisfuuka.jp/products/er1";
+    let recommendedAroma = "Relaxation（リラックス）";
+    let productURL = "https://whatisfuuka.jp/products/er1";
+
+    if (hspScore >= 12 && selectedAromas.length > 0) {
+        let randomAroma = selectedAromas[Math.floor(Math.random() * selectedAromas.length)];
+        recommendedAroma = randomAroma.aroma;
+        productURL = randomAroma.url;
+    }
 
     document.getElementById("hsp-score").innerText = resultMessage;
     document.getElementById("hsp-comment").innerText = hspComment;
