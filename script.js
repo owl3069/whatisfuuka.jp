@@ -28,13 +28,17 @@ const questions = [
 ];
 
 // HSPアロマ対応リスト
-const aromaList = {
+const aromaRecommendations = {
     "Grounding（土台）": "https://whatisfuuka.jp/products/hs3",
     "Protection（防御）": "https://whatisfuuka.jp/products/hs2",
     "Pull in（避難所）": "https://whatisfuuka.jp/products/hs7",
-    "Clean Energy（クリーンエナジー）": "https://whatisfuuka.jp/products/er1",
+    "Clean Energy（クリーンエナジー）": "https://whatisfuuka.jp/products/ce1",
     "Self Love（自愛）": "https://whatisfuuka.jp/products/hs4",
-    "Mission（ミッション）": "https://whatisfuuka.jp/products/hs8"
+    "Mission（ミッション）": "https://whatisfuuka.jp/products/hs8",
+    "Cleansing（浄化）": "https://whatisfuuka.jp/products/hs1", 
+    "Closure（解放）": "https://whatisfuuka.jp/products/hs9", 
+    "Me I am（自分自身）": "https://whatisfuuka.jp/products/hs6", 
+    "Speak（言葉を紡ぎ出す）": "https://whatisfuuka.jp/products/hs5"
 };
 
 // 初回の質問を表示
@@ -54,7 +58,13 @@ function displayNextQuestion() {
 function answerHSP(score) {
     hspScore += score;
     questionIndex++;
-    displayNextQuestion();
+    
+    // 次の質問へ
+    if (questionIndex < questions.length) {
+        displayNextQuestion();
+    } else {
+        showHSPResult();
+    }
 }
 
 function showHSPResult() {
