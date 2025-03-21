@@ -28,12 +28,21 @@ const questions = [
     { text: "子供のころ、親や教師は自分のことを「敏感だ」とか「内気だ」と思っていた", aroma: "Self Love（自愛）", url: "https://whatisfuuka.jp/products/hs4" }
 ];
 
+// 初回の質問表示
+function displayNextQuestion() {
+    if (questionIndex < questions.length) {
+        document.getElementById("current-question").innerText = questionIndex + 1;
+        document.getElementById("question-text").innerText = questions[questionIndex].text;
+    }
+}
+
 function answerHSP(score) {
     if (score === 1) {
         selectedAromas.push(questions[questionIndex]);
     }
     hspScore += score;
     questionIndex++;
+
     if (questionIndex < questions.length) {
         displayNextQuestion();
     } else {
@@ -64,3 +73,6 @@ function showAromaRecommendation() {
     document.getElementById("recommended-aroma").innerText = recommendedAroma;
     document.getElementById("product-link").href = productURL;
 }
+
+// **ページ読み込み時に最初の質問を表示**
+document.addEventListener("DOMContentLoaded", displayNextQuestion);
