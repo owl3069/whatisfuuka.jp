@@ -29,8 +29,7 @@ let questionIndex = 0;
 
 // ✅ 診断開始時に最初の質問を表示
 document.addEventListener("DOMContentLoaded", function() {
-    let questionText = document.getElementById("question-text");
-    
+    let questionText = document.getElementById("question-text");   
     if (questionText) {
         questionText.innerText = questions[questionIndex]; // 最初の質問をセット
         document.getElementById("current-question").innerText = questionIndex + 1;
@@ -57,7 +56,6 @@ function showHSPResult() {
     document.getElementById("result-box").style.display = "block";
 
     document.getElementById("hsp-score").innerText = `チェックした数: ${hspScore} / 23`;
-
     let hspComment = "";
     let recommendedAroma = "";
     let productURL = "";
