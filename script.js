@@ -27,19 +27,27 @@ const questions = [
     "子供のころ、親や教師は自分のことを「敏感だ」とか「内気だ」と思っていた"
 ];
 
-function answerHSP(score) {
-    hspScore += score;
-    questionIndex++;
+// ✅ 初回の質問を自動で表示する
+document.addEventListener("DOMContentLoaded", function() {
+    displayNextQuestion();
+});
 
+function displayNextQuestion() {
     if (questionIndex < questions.length) {
         document.getElementById("hsp-diagnosis").innerHTML = `
-            <p>質問${questionIndex + 1}: ${questions[questionIndex]}</p>
+            <p>質問 ${questionIndex + 1} / ${questions.length}: ${questions[questionIndex]}</p>
             <button onclick="answerHSP(1)">はい</button>
             <button onclick="answerHSP(0)">いいえ</button>
         `;
     } else {
         showAromaRecommendation();
     }
+}
+
+function answerHSP(score) {
+    hspScore += score;
+    questionIndex++;
+    displayNextQuestion();
 }
 
 function showAromaRecommendation() {
