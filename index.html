@@ -3,25 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FUUKA HSP & アロマ診断</title>
+    <title>FUUKA HSP診断 & アロマ診断</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h2>あなたに合ったアロマを診断</h2>
-    <p>まずはHSP診断を行い、その後アロマを提案します。</p>
+    <h2>HSP診断テスト</h2>
+    <p>以下の23問に答えて、HSP気質がどのくらいあるかチェックしてみましょう。</p>
+    <p>✅ 12個以上「はい」があるとHSP傾向があると考えられます。</p>
+    <p>質問数: <span id="current-question">1</span> / 23</p>
 
-    <div id="hsp-diagnosis">
-        <p>質問1: 人混みが苦手ですか？</p>
+    <div id="question-box">
+        <p id="question-text"></p>
         <button onclick="answerHSP(1)">はい</button>
         <button onclick="answerHSP(0)">いいえ</button>
     </div>
 
-    <div id="aroma-result" style="display: none;">
-        <p id="result-text"></p>
-        <a id="product-link" href="" target="_blank">おすすめのアロマを見る</a>
+    <div id="result-box" style="display: none;">
+        <h3>診断結果</h3>
+        <p id="hsp-score"></p>
+        <p id="hsp-comment"></p>
+        <p>あなたにおすすめのアロマ: <span id="recommended-aroma"></span></p>
+        <a id="product-link" href="#" target="_blank">アロマをチェックする</a>
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
