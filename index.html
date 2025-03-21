@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUUKA HSP & アロマ診断</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>あなたに合ったアロマを診断</h2>
+    <p>まずはHSP診断を行い、その後アロマを提案します。</p>
+
+    <div id="hsp-diagnosis">
+        <p>質問1: 人混みが苦手ですか？</p>
+        <button onclick="answerHSP(1)">はい</button>
+        <button onclick="answerHSP(0)">いいえ</button>
+    </div>
+
+    <div id="aroma-result" style="display: none;">
+        <p id="result-text"></p>
+        <a id="product-link" href="" target="_blank">おすすめのアロマを見る</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
