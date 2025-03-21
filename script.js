@@ -63,7 +63,7 @@ function showHSPResult() {
     let productURL = "";
 
     if (hspScore >= 12) {
-        hspComment = "エレイン・N・アーロン博士によると、あなたはHSPの気質があるようです。";
+        hspComment = "あなたはHSPの気質があるようです。";
         
         // ランダムにHSP向けのアロマを選択
         const aromaKeys = Object.keys(aromaList);
@@ -71,8 +71,8 @@ function showHSPResult() {
         recommendedAroma = aromaKeys[randomIndex];
         productURL = aromaList[recommendedAroma];
     } else {
-        hspComment = "あなたはHSP気質ではないかもしれませんが、心を整える香りを試してみてください。";
-        recommendedAroma = "Energy Refresh（エネルギーリフレッシュ）";
+        hspComment = "あなたはHSP気質ではないかもしれませんが、毎日のストレスケアは重要です。オランダ人気No.1商品をおすすめします";
+        recommendedAroma = "Clean Energy（クリーンエナジー）";
         productURL = "https://whatisfuuka.jp/products/er1";
     }
 
