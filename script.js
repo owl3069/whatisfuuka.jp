@@ -27,15 +27,23 @@ const questions = [
     "子供のころ、親や教師は自分のことを「敏感だ」とか「内気だ」と思っていた"
 ];
 
-// ✅ 初回の質問を自動で表示
+// ✅ 初回の質問を自動で表示する
 document.addEventListener("DOMContentLoaded", function() {
     displayNextQuestion();
 });
 
 function displayNextQuestion() {
+    const questionText = document.getElementById("question-text");
+    const currentQuestion = document.getElementById("current-question");
+
+    if (!questionText || !currentQuestion) {
+        console.error("要素が見つかりません。HTMLファイルに id='question-text' を追加してください。");
+        return;
+    }
+
     if (questionIndex < questions.length) {
-        document.getElementById("current-question").innerText = questionIndex + 1;
-        document.getElementById("question-text").innerText = questions[questionIndex];
+        currentQuestion.innerText = questionIndex + 1;
+        questionText.innerText = questions[questionIndex];
     } else {
         showAromaRecommendation();
     }
