@@ -1,69 +1,59 @@
 body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background-color: #f5f5e6;
-    color: #333;
+    font-family: "Noto Sans JP", sans-serif;
+    background-color: #f8f5e9;
     text-align: center;
     padding: 20px;
 }
 
-.container {
-    max-width: 500px;
-    margin: 0 auto;
+h2 {
+    color: #3e4a2d;
+}
+
+#question-box, #result-box {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
 }
 
-h2 {
-    color: #4a683f;
-    font-weight: 700;
-}
-
-.info {
-    background: #dff0d8;
-    color: #3c763d;
-    padding: 8px;
-    border-radius: 5px;
-    display: inline-block;
-}
-
-.counter {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.btn {
-    background: #4a683f;
+button {
+    background: #5c7045;
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 10px 20px;
+    margin: 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: 0.3s;
 }
 
-.btn:hover {
-    background: #36502c;
+button:hover {
+    background: #3e4a2d;
 }
 
-.aroma-recommendation {
-    background: #f5f5e6;
-    padding: 10px;
+#hsp-score {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+#recommended-aroma {
+    font-weight: bold;
+    color: #3e4a2d;
+}
+
+#product-link {
+    display: inline-block;
+    background: #5c7045;
+    color: white;
+    padding: 10px 15px;
     border-radius: 5px;
-    margin-top: 20px;
+    text-decoration: none;
+    margin-top: 10px;
 }
 
-.source {
-    font-size: 12px;
-    color: #666;
-    margin-top: 10px;
+#product-link:hover {
+    background: #3e4a2d;
 }
