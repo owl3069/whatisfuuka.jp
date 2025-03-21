@@ -59,7 +59,6 @@ function answerHSP(score) {
     hspScore += score;
     questionIndex++;
     
-    // 次の質問へ
     if (questionIndex < questions.length) {
         displayNextQuestion();
     } else {
@@ -80,11 +79,11 @@ function showHSPResult() {
     if (hspScore >= 12) {
         hspComment = "あなたはHSPの気質があるようです。";
         
-        // ランダムにHSP向けのアロマを選択
-        const aromaKeys = Object.keys(aromaList);
+        // ランダムにHSP向けのアロマを選択（修正）
+        const aromaKeys = Object.keys(aromaRecommendations);
         const randomIndex = Math.floor(Math.random() * aromaKeys.length);
         recommendedAroma = aromaKeys[randomIndex];
-        productURL = aromaList[recommendedAroma];
+        productURL = aromaRecommendations[recommendedAroma];
     } else {
         hspComment = "あなたはHSP気質ではないかもしれませんが、毎日たまるストレスをクリアに。";
         recommendedAroma = "オランダ人気No.1 Clean Energy（クリーンエナジー）";
