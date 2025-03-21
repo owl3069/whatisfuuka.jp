@@ -27,6 +27,12 @@ const questions = [
 let hspScore = 0;
 let questionIndex = 0;
 
+// ✅ 診断開始時に最初の質問を表示
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("question-text").innerText = questions[questionIndex];
+    document.getElementById("current-question").innerText = questionIndex + 1;
+});
+
 function answerHSP(score) {
     hspScore += score;
     questionIndex++;
